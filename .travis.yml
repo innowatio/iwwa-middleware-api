@@ -15,7 +15,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
->>>>>>> 6151f655346fe5062813d963e3863b9bafa2afcc
 
 script:
   - npm run lint

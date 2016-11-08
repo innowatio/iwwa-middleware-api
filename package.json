@@ -12,6 +12,7 @@
     "lint": "eslint src test",
     "prestart": "npm run build",
     "start": "NODE_PATH=lib node lib/server.js",
+    "test_windows": "set NODE_PATH=src&& set NODE_ENV=test&& mocha --compilers js:babel-register --require babel-polyfill --recursive",
     "test": "NODE_ENV=test NODE_PATH=src mocha --compilers js:babel-register --require babel-polyfill --recursive",
     "dev:start": "NODE_PATH=src nodemon --ignore test/ --exec node_modules/.bin/babel-node src/server.js | bunyan",
     "dev:test": "npm test -- --watch",

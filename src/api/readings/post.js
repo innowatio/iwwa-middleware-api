@@ -3,6 +3,13 @@ import {v4} from "node-uuid";
 import {apiRequests} from "services/api-requests";
 import log from "services/logger";
 
+import * as config from "../../config";
+
+import * as kerTranslator from "clv-kerberos-translator";
+import * as stdTranslator from "clv-standard-translator";
+
+
+
 const standardTranslator = "standard";
 const kerberosTranslator = "kerberos";
 const translatorEnum = [standardTranslator, kerberosTranslator];
@@ -48,10 +55,12 @@ export async function handler(req, res) {
 
     switch (translator) {
         case standardTranslator:
-            // invoke clv-standard-translator
+            await stdTranslator.SetupFromDBPromise(config.DB_URL,config.DB_NAME);
+            stdTranslator.EnableScheduledCaching('*/5 * * * *',config.DB_URL,config.DB_NAME);
+            readings = stdTranslator.ParsingFunction(req.body, installationId);
             break;
         case kerberosTranslator:
-            // invoke clv-kerberos-translator
+            readings = kerTranslator.ParsingFunction(req.body, installationId);
             break;
     }
 
