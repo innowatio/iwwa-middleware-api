@@ -44,7 +44,7 @@ export async function handler(req, res) {
         translator
     });
 
-    let readings = [];
+    let readings = [req.body];
 
     switch (translator) {
         case standardTranslator:
