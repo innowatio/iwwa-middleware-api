@@ -1,7 +1,4 @@
-import axios from "axios";
-import chai, {
-    expect
-} from "chai";
+import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import express from "express";
 import nock from "nock";
@@ -14,7 +11,6 @@ const server = express().use(api);
 chai.use(chaiAsPromised);
 
 import {
-    HOST,
     WRITE_API_ENDPOINT
 } from "config";
 
@@ -26,13 +22,9 @@ describe("Expose middleware APIs", () => {
             return !!(body.sensorId && body.date && body.source && body.measurements);
         };
 
-        const mockApi = nock(WRITE_API_ENDPOINT)
+        nock(WRITE_API_ENDPOINT)
             .post("/readings", matchPost)
             .reply(201, "Element created");
-
-        after(() => {
-            nock.cleanAll();
-        });
 
         it("fail for invalid translator", async () => {
             await request(server)
@@ -56,7 +48,7 @@ describe("Expose middleware APIs", () => {
                 "source": "reading",
                 "measurements": [{
                     "type": "activeEnergy",
-                    "value": 5,
+                    "value": 7,
                     "unitOfMeasurement": "kWh"
                 }]
             };

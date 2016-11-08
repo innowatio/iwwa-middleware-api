@@ -1,4 +1,4 @@
-import chai, {
+import {
     expect
 } from "chai";
 import nock from "nock";
@@ -19,7 +19,7 @@ describe("Translate readings", () => {
         "source": "reading",
         "measurements": [{
             "type": "activeEnergy",
-            "value": 10,
+            "value": 18,
             "unitOfMeasurement": "kWh"
         }]
     };
@@ -28,7 +28,7 @@ describe("Translate readings", () => {
         return !!(body.sensorId && body.date && body.source && body.measurements);
     };
 
-    const mockApi = nock(WRITE_API_ENDPOINT)
+    nock(WRITE_API_ENDPOINT)
         .post("/readings", matchPost)
         .reply(201, "Element created");
 

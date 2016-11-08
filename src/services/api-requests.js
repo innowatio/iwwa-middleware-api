@@ -9,6 +9,6 @@ import {
 
 export async function apiRequests(readings) {
     return await map(readings, async (reading) => {
-        const result = await axios.post(`${WRITE_API_ENDPOINT}/readings`, reading);
+        await axios.post(`${WRITE_API_ENDPOINT}/readings`, reading);
     });
 }
