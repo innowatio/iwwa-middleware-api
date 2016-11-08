@@ -1,0 +1,12 @@
+.env
+.idea
+.nyc_output
+coverage/
+lib/
+node_modules/
+npm-debug.log
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
