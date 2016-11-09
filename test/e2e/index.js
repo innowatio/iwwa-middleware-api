@@ -5,6 +5,10 @@ import nock from "nock";
 import request from "supertest-as-promised";
 
 import api from "api";
+import {
+    setUp,
+    tearDown
+} from "../init";
 
 const server = express().use(api);
 
@@ -16,15 +20,30 @@ import {
 
 describe("Expose middleware APIs", () => {
 
+    before(async () => {
+        await setUp();
+    });
+
+    after(async () => {
+        await tearDown();
+    });
+
+    const matchPost = (body) => {
+        return !!(body.sensorId && body.date && body.source);
+    };
+
     describe("On readings", () => {
 
-        const matchPost = (body) => {
-            return !!(body.sensorId && body.date && body.source && body.measurements);
-        };
+        beforeEach(() => {
+            nock(WRITE_API_ENDPOINT)
+                .persist()
+                .post("/readings", matchPost)
+                .reply(201, "Element created");
+        });
 
-        nock(WRITE_API_ENDPOINT)
-            .post("/readings", matchPost)
-            .reply(201, "Element created");
+        afterEach(() => {
+            nock.cleanAll();
+        });
 
         it("fail for invalid translator", async () => {
             await request(server)
@@ -102,7 +121,7 @@ describe("Expose middleware APIs", () => {
                         "clv_cod": "ASTR01",
                         "iwwa_cod": "",
                         "values": "0;0;50;2016-07-18T05:48:49;2016-07-18T20:59:04;2016-07-18T05:13:08;2016-07-18T21:34:45;50"
-                    }, {"clv_cod": "LUX01", "iwwa_cod": "", "values": "FALSE;1334970;51;2;0;0;0"}],
+                    }, { "clv_cod": "LUX01", "iwwa_cod": "", "values": "FALSE;1334970;51;2;0;0;0" }],
                     "ERR": {}
                 })
                 .expect(201);

@@ -1,6 +1,10 @@
-import {v4} from "node-uuid";
+import {
+    v4
+} from "node-uuid";
 
-import {apiRequests} from "services/api-requests";
+import {
+    apiRequests
+} from "services/api-requests";
 import log from "services/logger";
 
 import * as kerTranslator from "clv-kerberos-translator";
@@ -42,27 +46,25 @@ export async function handler(req, res) {
         translator
     } = req.params;
 
-    log.info({
-        installationId,
-        translator
-    });
+    let readings;
 
-    let readings = [req.body];
-
-    switch (translator) {
-        case standardTranslator:
-            readings = stdTranslator.ParsingFunction(req.body, installationId);
-            break;
-        case kerberosTranslator:
-            readings = kerTranslator.ParsingFunction(req.body, installationId);
-            break;
+    try {
+        switch (translator) {
+            case standardTranslator:
+                readings = stdTranslator.ParsingFunction(req.body, installationId);
+                break;
+            case kerberosTranslator:
+                readings = kerTranslator.ParsingFunction(req.body, installationId);
+                break;
+        }
+    } catch (error) {
+        log.info(error);
+        throw error;
     }
-
-    console.log({
-        computedReadings: readings
-    });
 
     await apiRequests(readings);
 
-    res.status(201).send({id: v4()});
+    res.status(201).send({
+        id: v4()
+    });
 }

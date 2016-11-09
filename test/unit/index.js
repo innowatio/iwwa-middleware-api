@@ -25,22 +25,23 @@ describe("Translate readings", () => {
     };
 
     const matchPost = (body) => {
-        return !!(body.sensorId && body.date && body.source && body.measurements);
+        return !!(body.sensorId && body.date && body.source);
     };
 
-    nock(WRITE_API_ENDPOINT)
-        .post("/readings", matchPost)
-        .reply(201, "Element created");
+    beforeEach(() => {
+        nock(WRITE_API_ENDPOINT)
+            .persist()
+            .post("/readings", matchPost)
+            .reply(201, "Element created");
+    });
 
-    after(() => {
+    afterEach(() => {
         nock.cleanAll();
     });
 
     it("send translated readings", async () => {
 
-        const payload = [{
-            ...reading
-        }];
+        const payload = [reading];
 
         await expect(apiRequests(payload)).to.be.not.rejected;
     });
@@ -48,7 +49,7 @@ describe("Translate readings", () => {
     it("invalid reading object", async () => {
 
         const payload = [{
-            someRandom: true
+            sensorId: true
         }];
 
         await expect(apiRequests(payload)).to.be.rejected;

@@ -1,0 +1,279 @@
+[
+    {
+        "_id": "5784e164f32a7b42b8cda5ac",
+        "device": "GASM",
+        "eobj": 25,
+        "values": [
+            {
+                "name": "CorrectedGasCounter",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "MeasuredGasCounter",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "Pressure",
+                "measurementUnit": "bar"
+            },
+            {
+                "name": "Temperature",
+                "measurementUnit": "°C"
+            },
+            {
+                "name": "ConversionCostant",
+                "measurementUnit": ""
+            },
+            {
+                "name": "CorrectedVolInErrCond",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "(CorrectedVolDay",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "CorrectedVolMonth",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "MeasuredVolDay",
+                "measurementUnit": "m^3"
+            },
+            {
+                "name": "MeasuredFlow",
+                "measurementUnit": "m^3/h"
+            },
+            {
+                "name": "CorrectedFlow",
+                "measurementUnit": "m^3/h"
+            },
+            {
+                "name": "BatteryCapacity",
+                "measurementUnit": "%",
+                "multiplierExponent": "-1"
+            },
+            {
+                "name": "Status",
+                "measurementUnit": ""
+            }
+        ]
+    },
+    {
+        "_id": "5784e164f32a7b42b8cda5a2",
+        "device": "ASTR",
+        "eobj": 46,
+        "values": [
+            {
+                "name": "Setpoint",
+                "measurementUnit": "%",
+                "multiplierExponent": "-1"
+            },
+            {
+                "name": "Status",
+                "measurementUnit": ""
+            },
+            {
+                "name": "eveningTwilight",
+                "measurementUnit": ""
+            },
+            {
+                "name": "lastReceivedSunrise",
+                "measurementUnit": "--"
+            },
+            {
+                "name": "lastReceivedSunSet",
+                "measurementUnit": "--"
+            },
+            {
+                "name": "civillastReceivedSunRise",
+                "measurementUnit": "--"
+            },
+            {
+                "name": "civillastReceivedSunSet",
+                "measurementUnit": ""
+            },
+            {
+                "name": "morningTwilight",
+                "measurementUnit": ""
+            }
+        ]
+    },
+    {
+        "_id": "5784e164f32a7b42b8cda5b1",
+        "device": "LUX",
+        "eobj": 30,
+        "values": [
+            {
+                "name": "LightON",
+                "measurementUnit": ""
+            },
+            {
+                "name": "WorkingTimeCounter",
+                "measurementUnit": "sec"
+            },
+            {
+                "name": "PowerOnCycleCounter",
+                "measurementUnit": ""
+            },
+            {
+                "name": "CurrentMode",
+                "measurementUnit": ""
+            },
+            {
+                "name": "Status",
+                "measurementUnit": ""
+            },
+            {
+                "name": "forcedOn",
+                "measurementUnit": ""
+            },
+            {
+                "name": "forcedOff",
+                "measurementUnit": ""
+            },
+            {
+                "name": "isDimmerable",
+                "measurementUnit": ""
+            },
+            {
+                "name": "currentLux",
+                "measurementUnit": ""
+            }
+        ]
+    },
+    {
+        "_id": "5784e164f32a7b42b8cda5af",
+        "device": "ANZ",
+        "eobj": 28,
+        "values": [
+            {
+                "name": "voltageL1N",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "voltageL2N",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "voltageL3N",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "voltageL1L2",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "voltageL2L3",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "voltageL3L1",
+                "measurementUnit": "V"
+            },
+            {
+                "name": "frequency",
+                "measurementUnit": "Hz",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL1",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL2",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL3",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL1Max",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL2Max",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "currentL3Max",
+                "measurementUnit": "A",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "powerfactorL1",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "powerfactorL2",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "powerfactorL3",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "activePower",
+                "measurementUnit": "W"
+            },
+            {
+                "name": "activePowerAvg",
+                "measurementUnit": "W"
+            },
+            {
+                "name": "activePowerMax",
+                "measurementUnit": "W"
+            },
+            {
+                "name": "reactivePower",
+                "measurementUnit": ""
+            },
+            {
+                "name": "reactivePowerMax",
+                "measurementUnit": ""
+            },
+            {
+                "name": "activeEnergy",
+                "measurementUnit": "kWh",
+                "multiplierExponent": "-1"
+            },
+            {
+                "name": "reactiveEnergy",
+                "measurementUnit": "kh",
+                "multiplierExponent": "-1"
+            },
+            {
+                "name": "Status",
+                "measurementUnit": ""
+            },
+            {
+                "name": "cosphiL1",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "cosphiL2",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "cosphiL3",
+                "measurementUnit": "",
+                "multiplierExponent": "-3"
+            },
+            {
+                "name": "anzType",
+                "measurementUnit": ""
+            }
+        ]
+    }
+]
