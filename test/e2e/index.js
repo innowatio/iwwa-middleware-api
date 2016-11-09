@@ -107,32 +107,5 @@ describe("Expose middleware APIs", () => {
                 })
                 .expect(201);
         });
-
-        it("success for readings object", async () => {
-            await request(server)
-                .post("/readings/kerberos/2")
-                .send({
-                    asd: true
-                })
-                .expect(500);
-        });
-
-        it("send translated readings", async () => {
-            const reading = {
-                "sensorId": "IT001E00030554",
-                "date": "2015-10-14T15:08:16.652Z",
-                "source": "reading",
-                "measurements": [{
-                    "type": "activeEnergy",
-                    "value": 7,
-                    "unitOfMeasurement": "kWh"
-                }]
-            };
-
-            await request(server)
-                .post("/readings/standard/1")
-                .send(reading)
-                .expect(201);
-        });
     });
 });
