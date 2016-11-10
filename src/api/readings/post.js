@@ -62,6 +62,10 @@ export async function handler(req, res) {
         throw error;
     }
 
+    log.info({
+        readings
+    });
+
     await apiRequests(readings);
 
     res.status(201).send({
