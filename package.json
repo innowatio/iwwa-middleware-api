@@ -68,7 +68,7 @@
     "bunyan": "^1.8.4",
     "bunyan-request": "^1.2.0",
     "clv-kerberos-translator": "^1.0.3",
-    "clv-standard-translator": "^1.0.6",
+    "clv-standard-translator": "^1.0.7",
     "convexpress": "^1.4.2",
     "express": "^4.14.0",
     "mongodb": "^2.2.11",
