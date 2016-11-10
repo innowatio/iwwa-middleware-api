@@ -66,9 +66,18 @@ export async function handler(req, res) {
         readings
     });
 
-    await apiRequests(readings);
+    try {
 
-    res.status(201).send({
-        id: v4()
-    });
+        await apiRequests(readings);
+
+        res.status(201).send({
+            id: v4()
+        });
+
+    } catch (error) {
+        log.info(error);
+        res.status(500).send({
+            error
+        });
+    }
 }
